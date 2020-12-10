@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gBjkEyKgZ6Ly9OB9ytNjZGtPPK7sp90M9UeYBSpflPqz5KR7RZXHSsxl4CMONBtoW3JAETfWNPkA3dqfpShFgw==",
+  "dgSpecHash": "jiIsunPdUx9IFXzIAnbEAdzqVFpUg/ZLf5cahnKYcEfWmDRbfRERwACuR5sQMA9fTNP/2hP5TxobJ9xajcdkBg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Teagan\\Desktop\\AdventOfCode\\AdventOfCode.csproj",
+  "projectFilePath": "C:\\Users\\Teagan\\Desktop\\AdventOfCode\\day1\\AdventOfCode.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
