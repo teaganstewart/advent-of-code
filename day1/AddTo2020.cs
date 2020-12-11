@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace AdventOfCode
 {
+
+    /*
+    * Checks input for two numbers that add up to 2020. Day 1 of the Advent of Code challenge.
+    */
     class AddTo2020
     {   
 
