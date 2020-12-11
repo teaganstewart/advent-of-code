@@ -3,14 +3,12 @@
 namespace AdventOfCode
 {
     /*
-    * Creates a password check for a make believe Toboggan factory. Day 2 of the Advent of Code challenge.
+    * Checks the path to see the number of trees in the way. Day 3 of the Advent of Code challenge.
     *
-    * Each policy actually describes two positions in the password, where 1 means the first character, 2 means the second character, and so on. (Be careful; Toboggan Corporate Policies have no concept of "index zero"!) 
-    * Exactly one of these positions must contain the given letter. Other occurrences of the letter are irrelevant for the purposes of policy enforcement.
+    * The main idea is to check the path the Toboggan will travel down for trees. The toboggan can only move 3 to the right and 1 to the left.
     *
-    * 1-3 a: abcde is valid: position 1 contains a and position 3 does not.
-    * 1-3 b: cdefg is invalid: neither position 1 nor position 3 contains b.
-    * 2-9 c: ccccccccc is invalid: both position 2 and position 9 contain c.
+    * ..##.........##.........##.........##.........##.........##.......  --->
+    * #..O#...#..#...#...#..#...#...#..#...#...#..#...#...#..#...#...#.. is an example field, where #'s represent trees and dots are clear paths.
     */
     class TreeMaze
     {
@@ -20,7 +18,6 @@ namespace AdventOfCode
 
         public void ReadInputFile()
         {
-
             // initalisation of storage variables
             int counter = 0;
             string line;
@@ -57,15 +54,30 @@ namespace AdventOfCode
 
         }
 
-        void FindPath()
+        void CheckAllSlopes()
+        {
+            int[] xCoords = new int[] { 1, 3, 5, 7, 1 };
+            int[] yCoords = new int[] { 1, 1, 1, 1, 2 };
+
+            int res = 1;
+
+            for (int i = 0; i < xCoords.Length; i++)
+            {
+                res *= FindPath(xCoords[i], yCoords[i]);
+            }
+
+            Console.WriteLine("The number of trees multiplied is {0}", res);
+        }
+
+        int FindPath(int xChange, int yChange)
         {
             int x = 0; int y = 0;
             int treesHit = 0;
 
-            while (y < lines.Length - 1)
+            while (y < lines.Length - yChange)
             {
-                x = (x + 3) % lines[0].Length;
-                y++;
+                x = (x + xChange) % lines[0].Length;
+                y += yChange;
 
                 if (treeMap[y, x] == '#')
                 {
@@ -73,7 +85,9 @@ namespace AdventOfCode
                 }
             }
 
-            Console.WriteLine("On your path you will hit {0} trees.", treesHit);
+            Console.WriteLine("On your path {0} right, {1} down you will hit {2} trees.", xChange, yChange, treesHit);
+
+            return treesHit;
 
         }
 
@@ -82,7 +96,7 @@ namespace AdventOfCode
             TreeMaze t = new TreeMaze();
             t.ReadInputFile();
             t.SetupTreeMap();
-            t.FindPath();
+            t.CheckAllSlopes();
 
         }
     }
