@@ -50,9 +50,6 @@ namespace AdventOfCode
         }
 
         int CheckFor2020Three() {
-            // System.Collections.IEnumerator numEnum = numbers.GetEnumerator();
-            // while (( numEnum.MoveNext() ) && ( numEnum.Current != null ))
-            //     Console.WriteLine( numEnum.Current);
 
             foreach( int i in numbers) {
                 foreach(int j in numbers) {

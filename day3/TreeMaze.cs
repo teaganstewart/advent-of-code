@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AdventOfCode
 {
@@ -7,13 +8,12 @@ namespace AdventOfCode
     *
     * The main idea is to check the path the Toboggan will travel down for trees. The toboggan can only move 3 to the right and 1 to the left.
     *
-    * ..##.........##.........##.........##.........##.........##.......  --->
-    * #..O#...#..#...#...#..#...#...#..#...#...#..#...#...#..#...#...#.. is an example field, where #'s represent trees and dots are clear paths.
+    * ..##....... 
+    * #..O#...#.. is an example field, where #'s represent trees and dots are clear paths.
     */
     class TreeMaze
     {
-
-        string[] lines;
+        List<string> lines;
         char[,] treeMap;
 
         public void ReadInputFile()
@@ -21,14 +21,14 @@ namespace AdventOfCode
             // initalisation of storage variables
             int counter = 0;
             string line;
-            lines = new string[323];
+            lines = new List<string>();
 
             // Read the file and display it line by line.  
             System.IO.StreamReader file = new System.IO.StreamReader(@"input.txt");
 
             while ((line = file.ReadLine()) != null)
             {
-                lines[counter] = line;
+                lines.Add(line);
                 counter++;
             }
 
@@ -39,9 +39,9 @@ namespace AdventOfCode
 
         void SetupTreeMap()
         {
-            treeMap = new char[lines.Length, lines[0].Length];
+            treeMap = new char[lines.Count, lines[0].Length];
 
-            for (int i = 0; i < lines.Length; i++)
+            for (int i = 0; i < lines.Count; i++)
             {
                 char[] linesLetters = lines[i].ToCharArray();
 
@@ -59,7 +59,7 @@ namespace AdventOfCode
             int[] xCoords = new int[] { 1, 3, 5, 7, 1 };
             int[] yCoords = new int[] { 1, 1, 1, 1, 2 };
 
-            int res = 1;
+            long res = 1;
 
             for (int i = 0; i < xCoords.Length; i++)
             {
@@ -74,7 +74,7 @@ namespace AdventOfCode
             int x = 0; int y = 0;
             int treesHit = 0;
 
-            while (y < lines.Length - yChange)
+            while (y < lines.Count - yChange)
             {
                 x = (x + xChange) % lines[0].Length;
                 y += yChange;
@@ -85,7 +85,8 @@ namespace AdventOfCode
                 }
             }
 
-            Console.WriteLine("On your path {0} right, {1} down you will hit {2} trees.", xChange, yChange, treesHit);
+            Console.WriteLine("On your path {0} right, {1} down you will hit {2} trees.",
+                xChange, yChange, treesHit);
 
             return treesHit;
 
