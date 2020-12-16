@@ -3,19 +3,21 @@ using System.Collections.Generic;
 
 namespace AdventOfCode
 {
-    /*
-    * Checks the path to see the number of trees in the way. Day 3 of the Advent of Code challenge.
-    *
-    * The main idea is to check the path the Toboggan will travel down for trees. The toboggan can only move 3 to the right and 1 to the left.
-    *
-    * ..##....... 
-    * #..O#...#.. is an example field, where #'s represent trees and dots are clear paths.
-    */
+    /// <summary>
+    /// Author: Teagan Stewart.
+    /// Checks the path to see the number of trees in the way. Day 3 of the Advent of Code challenge.
+    /// The main idea is to check the path the Toboggan will travel down for trees. The toboggan can only move 3 to the right and 1 to the left.
+    /// ..##....... 
+    /// #..O#...#.. is an example field, where #'s represent trees and dots are clear paths.
+    /// </summary>
     class TreeMaze
     {
         List<string> lines;
         char[,] treeMap;
 
+        /// <summary>
+        /// Reads the Tree Maze from the input file.
+        /// </summary>
         public void ReadInputFile()
         {
             // initalisation of storage variables
@@ -37,6 +39,9 @@ namespace AdventOfCode
 
         }
 
+        /// <summary>
+        /// Creates the tree map based on the input file. Tree Map loops infinitely horizontally to create the tree field.
+        /// </summary>
         void SetupTreeMap()
         {
             treeMap = new char[lines.Count, lines[0].Length];
@@ -54,6 +59,9 @@ namespace AdventOfCode
 
         }
 
+        /// <summary>
+        /// Checks the required slopes to find the slope that has the least trees in the way.
+        /// </summary>
         void CheckAllSlopes()
         {
             int[] xCoords = new int[] { 1, 3, 5, 7, 1 };
@@ -69,6 +77,12 @@ namespace AdventOfCode
             Console.WriteLine("The number of trees multiplied is {0}", res);
         }
 
+        /// <summary>
+        /// Finds a path through the trees based on the slope, uses the modulo of the index to work out where in the tree field you currently are. 
+        /// </summary>
+        /// <param name="xChange"> The x change of the slope. </param>
+        /// <param name="yChange"> The y change of the slope. </param>
+        /// <returns> The number of trees hit on the given slope. x/y. </returns>
         int FindPath(int xChange, int yChange)
         {
             int x = 0; int y = 0;

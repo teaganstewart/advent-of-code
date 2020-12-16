@@ -20,7 +20,9 @@ namespace AdventOfCode
         char[] letters;
         string[] passwords;
 
-
+        /// <summary>
+        /// Reads the password and password requirements information from the input file. 
+        /// </summary>
         public void ReadInputFile()
         {
 
@@ -61,6 +63,10 @@ namespace AdventOfCode
 
         }
 
+        /// <summary>
+        /// Uses the stored letter from the input file, to check whether the password contains the right amount of that letter.
+        /// If a password does, it is valid, otherwise it is invalid.
+        /// </summary>
         void CheckPasswords()
         {
 
@@ -83,9 +89,11 @@ namespace AdventOfCode
             Console.WriteLine("There are {0} valid passowrds", validPasswords);
         }
 
+        /// <summary>
+        /// Checks whether the letter occurs in only one of the positions given in the input file. If it does, it is valid, otherwise it is not.
+        /// </summary>
         void CorrectPasswordCheck()
         {
-
             int validPasswords = 0;
 
             for (int i = 0; i < 1000; i++)

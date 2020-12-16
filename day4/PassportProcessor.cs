@@ -7,17 +7,19 @@ using System.Linq;
 
 namespace AdventOfCode
 {
-    ///
+    /// <summary>
+    /// Author: Teagan Stewart.
     /// A class that given an input of passwords, each field seperated by spaces and each passport seperated by an empty line it will check whether the password is valid or not.
     /// Makes sure all requried passport fields are there, and if they are, if the value is valid. Counts the number of valid passports from the input file.
-    /// <author name="Teagan Stewart"> 
-    ///
+    /// </summary>
     class PassportProcessor
     {
 
         List<string> seperatedPassports;
 
+        /// <summary>
         /// Reads the input file and splits the passport into seperate strings. Each empty line "" represents a new passport.
+        /// </summary>
         public void ReadInputFile()
         {
             string line;
@@ -43,7 +45,9 @@ namespace AdventOfCode
             file.Close();
         }
 
+        /// <summary>
         /// Creates the list of dictionaries for each of the passports, then checks if the passports are valid.
+        /// </summary>
         public void CheckPassports()
         {
 
@@ -92,12 +96,12 @@ namespace AdventOfCode
         // ---------------------------------------
         // ---------- HELPER METHODS -------------
         // ---------------------------------------
-        
+
         /// <summary>
         /// A helper method to check whether a given string is actually a number.
+        /// </summary>
         /// <param name="value"> The value that needs to be parsed into an interger. </param>
         /// <returns> The parsed number version of the given string "value". </param>
-        /// </summary>
         int CheckNumber(string value)
         {
             int number;
@@ -115,9 +119,9 @@ namespace AdventOfCode
 
         /// <summary>
         // A helper method that checks the type of a given value, and returns whether the given value is correct based on the type.
-        /// <param name="value"> The value of the current field. </param>
-        /// <returns> Whether the given value is valid or not. </param>
         /// </summary>
+        /// <param name="value"> The value of the current field. </param>
+        /// <returns> Whether the given value is valid or not. </returns>
         bool CheckFields(string value, string type)
         {
 
@@ -161,9 +165,9 @@ namespace AdventOfCode
 
         /// <summary>
         // A helper method for the CheckFields method, checks specifically whether the height field is valid.
-        /// <param name="value"> The value of the current field. </param>
-        /// <returns> Whether the given value is valid or not. </param>
         /// </summary>
+        /// <param name="value"> The value of the current field. </param>
+        /// <returns> Whether the given value is valid or not. </returns>
         bool CheckHeight(string value)
         {
 
@@ -183,9 +187,9 @@ namespace AdventOfCode
 
         /// <summary>
         // A helper method for the CheckFields method, checks specifically whether the hair color field is valid.
-        /// <param name="value"> The value of the current field. </param>
-        /// <returns> Whether the given value is valid or not. </param>
         /// </summary>
+        /// <param name="value"> The value of the current field. </param>
+        /// <returns> Whether the given value is valid or not. </returns>
         bool CheckHairColor(string value)
         {
             return Regex.Match(value, @"^#[0-9a-f]{6}$").Success;
@@ -193,9 +197,9 @@ namespace AdventOfCode
 
         /// <summary>
         // A helper method for the CheckFields method, checks specifically whether the eye color field is valid.
-        /// <param name="value"> The value of the current field. </param>
-        /// <returns> Whether the given value is valid or not. </param>
         /// </summary>
+        /// <param name="value"> The value of the current field. </param>
+        /// <returns> Whether the given value is valid or not. </returns>
         bool CheckEyeColor(string value)
         {
             string[] validColors = new string[] { "amb", "blu", "brn", "gry", "grn", "hzl", "oth" };
@@ -205,9 +209,9 @@ namespace AdventOfCode
 
         /// <summary>
         // A helper method for the CheckFields method, checks specifically whether the passport id field is valid.
-        /// <param name="value"> The value of the current field. </param>
-        /// <returns> Whether the given value is valid or not. </param>
         /// </summary>
+        /// <param name="value"> The value of the current field. </param>
+        /// <returns> Whether the given value is valid or not. </returns>
         bool CheckPassportId(string value)
         {
             return Regex.Match(value, @"^\d{9}$").Success;

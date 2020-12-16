@@ -6,6 +6,7 @@ using System.Linq;
 namespace AdventOfCode
 {
     /// <summary>
+    /// Author: Teagan Stewart
     /// A class that given an input of passwords, each field seperated by spaces and each passport seperated by an empty line it will check whether the password is valid or not.
     /// Makes sure all requried passport fields are there, and if they are, if the value is valid. Counts the number of valid passports from the input file.
     /// </summary>
@@ -117,11 +118,11 @@ namespace AdventOfCode
         /// If the seat is in the lower half it will make the maximum the middle of the min and max,
         /// if the seat is in the higher half it will make the minimum the middle + 1, as middle is in the lower
         /// section as indexes start at 0.
+        /// </summary>
         /// <param name="arr"> The current array of chars to read, specifies upper or lower. </param>
         /// <param name="min"> The minimum number row/col. </param>
         /// <param name="max"> The maximum number row/col. </param>
         /// <param name="lower"> Whether arr is a col or row array. </param>
-        /// </summary>
         int ReadBinary(char[] arr, int min, int max, char lower)
         {
             foreach (char c in arr)

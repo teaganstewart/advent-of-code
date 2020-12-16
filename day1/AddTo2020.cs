@@ -4,14 +4,17 @@ using System.Collections.Generic;
 namespace AdventOfCode
 {
 
-    /*
-    * Checks input for two numbers that add up to 2020. Day 1 of the Advent of Code challenge.
-    */
+    /// <summary>
+    /// Checks input for two numbers that add up to 2020. Day 1 of the Advent of Code challenge.
+    /// </summary>
     class AddTo2020
     {   
 
         List<int> numbers;
 
+        /// <summary>
+        /// Reads numbers in input file for use later.
+        /// </summary>
         public void ReadInputFile() {
             int counter = 0;  
             string line;  
@@ -32,10 +35,10 @@ namespace AdventOfCode
 
         }
 
+        /// <summary>
+        /// Checks to see if there are two numbers that add to 2020 from the input file.
+        /// </summary>
         int CheckFor2020Two() {
-            // System.Collections.IEnumerator numEnum = numbers.GetEnumerator();
-            // while (( numEnum.MoveNext() ) && ( numEnum.Current != null ))
-            //     Console.WriteLine( numEnum.Current);
 
             foreach( int i in numbers) {
                 foreach(int j in numbers) {
@@ -49,6 +52,9 @@ namespace AdventOfCode
 
         }
 
+        /// <summary>
+        /// Checks to see if there are three numbers that add to 2020 from the input file.
+        /// </summary>
         int CheckFor2020Three() {
 
             foreach( int i in numbers) {
