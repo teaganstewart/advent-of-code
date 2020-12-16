@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 
@@ -34,6 +33,8 @@ namespace AdventOfCode
             {
                 passes.Add(line);
             }
+
+            file.Close();
         }
 
         /// <summary>
@@ -81,7 +82,7 @@ namespace AdventOfCode
         /// Creates a list of ordered seat ids so I can easily find the missing seat, which is therefore mine.
         /// </summary>
         void FindMySeat()
-        {   
+        {
             // converts the list of seat rows and cols into a list of ordered seat ids
             var seatIds = seats.Select(seat =>
             {

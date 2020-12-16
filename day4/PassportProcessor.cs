@@ -40,6 +40,7 @@ namespace AdventOfCode
             }
 
             seperatedPassports.Add(passport);
+            file.Close();
         }
 
         /// Creates the list of dictionaries for each of the passports, then checks if the passports are valid.
