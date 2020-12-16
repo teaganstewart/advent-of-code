@@ -8,29 +8,30 @@ namespace AdventOfCode
     /// Checks input for two numbers that add up to 2020. Day 1 of the Advent of Code challenge.
     /// </summary>
     class AddTo2020
-    {   
+    {
 
         List<int> numbers;
 
         /// <summary>
         /// Reads numbers in input file for use later.
         /// </summary>
-        public void ReadInputFile() {
-            int counter = 0;  
-            string line;  
+        public void ReadInputFile()
+        {
+            int counter = 0;
+            string line;
             numbers = new List<int>();
-            
+
             // Read the file and display it line by line.  
             System.IO.StreamReader file =
-                new System.IO.StreamReader(@"input.txt");  
-            while((line = file.ReadLine()) != null)  
-            {  
+                new System.IO.StreamReader(@"input.txt");
+            while ((line = file.ReadLine()) != null)
+            {
                 numbers.Add(int.Parse(line));
-                counter++;  
-            }  
-            
-            file.Close();  
-            System.Console.WriteLine("There were {0} lines.", counter);  
+                counter++;
+            }
+
+            file.Close();
+            System.Console.WriteLine("There were {0} lines.", counter);
             System.Console.WriteLine(numbers.Count);
 
         }
@@ -38,11 +39,15 @@ namespace AdventOfCode
         /// <summary>
         /// Checks to see if there are two numbers that add to 2020 from the input file.
         /// </summary>
-        int CheckFor2020Two() {
+        int CheckFor2020Two()
+        {
 
-            foreach( int i in numbers) {
-                foreach(int j in numbers) {
-                    if ( i + j == 2020) {
+            foreach (int i in numbers)
+            {
+                foreach (int j in numbers)
+                {
+                    if (i + j == 2020)
+                    {
                         return i * j;
                     }
                 }
@@ -55,12 +60,17 @@ namespace AdventOfCode
         /// <summary>
         /// Checks to see if there are three numbers that add to 2020 from the input file.
         /// </summary>
-        int CheckFor2020Three() {
+        int CheckFor2020Three()
+        {
 
-            foreach( int i in numbers) {
-                foreach(int j in numbers) {
-                    foreach(int k in numbers) {
-                        if ( i + j + k == 2020) {
+            foreach (int i in numbers)
+            {
+                foreach (int j in numbers)
+                {
+                    foreach (int k in numbers)
+                    {
+                        if (i + j + k == 2020)
+                        {
                             return i * j * k;
                         }
                     }

@@ -8,8 +8,9 @@ namespace AdventOfCode
 {
 
     /// <summary>
-    /// A class that given an input of passwords, each field seperated by spaces and each passport seperated by an empty line it will check whether the password is valid or not.
-    /// Makes sure all requried passport fields are there, and if they are, if the value is valid. Counts the number of valid passports from the input file.
+    /// A class that given an input of passwords, each field seperated by spaces and each passport seperated by an empty line it will 
+    /// check whether the password is valid or not. Makes sure all requried passport fields are there, and if they are, if the value 
+    /// is valid. Counts the number of valid passports from the input file.
     /// </summary>
     class CustomCustoms
     {
@@ -50,13 +51,34 @@ namespace AdventOfCode
                 sum += superAnswer.Distinct().Count();
             }
 
-            Console.WriteLine("The sum of the number of quesitons answered yes is {0}.", sum);
+            Console.WriteLine("The sum of the number of quesitons answered \"yes\" is {0}.", sum);
 
         }
 
+        /// <summary>
+        /// Calculates the intersect of each group of answers, checking the number of questions where everyoen answered yes in a group. 
+        /// Sums these numbers together for all of the groups.
+        /// </summary>
         void ProcessIntersectAnswer()
         {
+            int sum = 0;
 
+            foreach (IEnumerable<char[]> group in groupAnswers)
+            {
+                var list = Enumerable.Empty<char>();
+                list = new List<char>(group.First());
+                // checks the intersection for every persons answer in a group
+                foreach (var answer in group)
+                {
+                    // allows the intersect method to be used, cant be used on a normal array
+                    var a = new List<char>(answer);
+                    list = a.Intersect(list);
+                }
+
+                sum += list.Count();
+            }
+
+            Console.WriteLine("The sum of the number of quesitons everyone answered \"yes\" is {0}.", sum);
         }
 
         static void Main(string[] args)
