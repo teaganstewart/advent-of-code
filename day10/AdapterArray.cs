@@ -8,14 +8,11 @@ namespace AdventOfCode
 {
     /// <summary>
     /// </summary>
-    class CustomCustoms
+    class AdapterArray
     {
         static void Main(string[] args)
         {
-            CustomCustoms c = new CustomCustoms();
-            c.ReadInputFile();
-            c.ProcessYesAnswers();
-            c.ProcessIntersectAnswer();
+            AdapterArray a = new AdapterArray();
         }
     }
 }

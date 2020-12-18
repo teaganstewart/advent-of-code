@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Teagan\\Desktop\\Advent-Of-Code\\day6\\AdventOfCode.csproj",
+      "projectUniqueName": "C:\\Users\\Teagan\\Desktop\\Advent-Of-Code\\day8\\AdventOfCode.csproj",
       "projectName": "AdventOfCode",
-      "projectPath": "C:\\Users\\Teagan\\Desktop\\Advent-Of-Code\\day6\\AdventOfCode.csproj",
+      "projectPath": "C:\\Users\\Teagan\\Desktop\\Advent-Of-Code\\day8\\AdventOfCode.csproj",
       "packagesPath": "C:\\Users\\Teagan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Teagan\\Desktop\\Advent-Of-Code\\day6\\obj\\",
+      "outputPath": "C:\\Users\\Teagan\\Desktop\\Advent-Of-Code\\day8\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Teagan\\AppData\\Roaming\\NuGet\\NuGet.Config"

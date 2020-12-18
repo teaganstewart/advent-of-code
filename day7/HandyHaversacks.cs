@@ -8,14 +8,11 @@ namespace AdventOfCode
 {
     /// <summary>
     /// </summary>
-    class CustomCustoms
+    class HandyHaversacks
     {
         static void Main(string[] args)
         {
-            CustomCustoms c = new CustomCustoms();
-            c.ReadInputFile();
-            c.ProcessYesAnswers();
-            c.ProcessIntersectAnswer();
+            HandyHaversacks h = new HandyHaversacks();
         }
     }
 }

@@ -8,14 +8,11 @@ namespace AdventOfCode
 {
     /// <summary>
     /// </summary>
-    class CustomCustoms
+    class EncodingError
     {
         static void Main(string[] args)
         {
-            CustomCustoms c = new CustomCustoms();
-            c.ReadInputFile();
-            c.ProcessYesAnswers();
-            c.ProcessIntersectAnswer();
+            EncodingError e = new EncodingError();
         }
     }
 }
