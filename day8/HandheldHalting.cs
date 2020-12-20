@@ -19,7 +19,7 @@ namespace AdventOfCode
         /// Reads each line of the input file. Each line desribes a command: acc, jmp or nop. acc updates the accumulator, jmp jumps to a new position and
         /// nop does nothing. Stores the commands so we can find the problem later.
         /// </summary>
-        void ReadInputFile()
+        void ReadInputFile() 
         {
             commands = Regex.Split(File.ReadAllText(@"input.txt"), @"\n")
             .Select(entry =>
